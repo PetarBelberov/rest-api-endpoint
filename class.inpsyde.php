@@ -41,12 +41,6 @@
         add_option( 'inpsyde_plugin_deactivated', time() );
     }
 
-    public function shortcode( ) {
-        ob_start(); // start output buffering
-        Inpsyde_Plugin::html_form_code(); 
-        return ob_get_clean(); // end the buffer session
-    }
-
     public static function view( $name, array $args = array() ) {
 		$args = apply_filters( 'inpsyde_view_arguments', $args, $name );
 		
@@ -60,6 +54,4 @@
 
 		include( $file );
 	}
-
-    
   }
