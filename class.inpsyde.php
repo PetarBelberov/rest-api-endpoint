@@ -1,6 +1,7 @@
 <?php
 
   class Inpsyde_Plugin {
+    private static $data = array();
     
     /**
      * Register the routes for the objects of the controller.
@@ -23,9 +24,11 @@
         $request_body = wp_remote_retrieve_body( $request );
         
         // Translate into an array
-        $data = json_decode( $request_body, true );
-        if( ! empty( $data ) ) {  
-            return $data;
+       self::$data = json_decode( $request_body, true );
+        
+        if( ! empty( self::$data ) ) {  
+            
+            return (self::$data);
         }
     }
 
@@ -37,4 +40,26 @@
     function plugin_deactivation() {
         add_option( 'inpsyde_plugin_deactivated', time() );
     }
+
+    public function shortcode( ) {
+        ob_start(); // start output buffering
+        Inpsyde_Plugin::html_form_code(); 
+        return ob_get_clean(); // end the buffer session
+    }
+
+    public static function view( $name, array $args = array() ) {
+		$args = apply_filters( 'inpsyde_view_arguments', $args, $name );
+		
+		foreach ( $args AS $key => $val ) {
+			$key = $val;
+		}
+		
+		load_plugin_textdomain( 'inpsyde' );
+
+		$file = INPSYDE__PLUGIN_DIR . 'views/'. $name . '.php';
+
+		include( $file );
+	}
+
+    
   }

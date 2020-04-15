@@ -6,6 +6,7 @@ class Inpsyde_Admin {
 
     public static function init() {
 		if ( ! self::$initiated ) {
+            //  shortcut to access the static class method
 			self::init_hooks();
         }
     }
@@ -18,7 +19,7 @@ class Inpsyde_Admin {
     // Plugin action link 
     public static function plugin_action_link( $link ) {
         $link = array_merge( array(
-            '<a href="' . esc_url( plugin_dir_url( __DIR__ ) . 'inpsyde-plugin-task/class.inpsyde-table.php' ) . '">' . __( 'URL', 'textdomain' ) . '</a>'
+            '<a href="' . esc_url( plugin_dir_url( __DIR__ ) . 'inpsyde-plugin-task/views/inpsyde-table.php' ) . '">' . __( 'URL', 'textdomain' ) . '</a>'
         ), $link );
 
 	return $link;

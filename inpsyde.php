@@ -21,7 +21,9 @@ register_activation_hook( __FILE__, array( 'Inpsyde_Plugin', 'plugin_activation'
 register_deactivation_hook( __FILE__, array( 'Inpsyde_Plugin', 'plugin_deactivation' ) );
 
 require_once( INPSYDE__PLUGIN_DIR . 'class.inpsyde.php' );
-require_once( INPSYDE__PLUGIN_DIR . 'class.inpsyde-table.php' );
+require_once( INPSYDE__PLUGIN_DIR . 'class.inpsyde-shortcode.php' );
+
+// add_shortcode( 'inpsyde_shortcode', array('Inpsyde_Shortcode', 'shortcode' ));
 
 add_action('rest_api_init', array('Inpsyde_Plugin', 'register_endpoint' ));
 
