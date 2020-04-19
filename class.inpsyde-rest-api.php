@@ -14,21 +14,26 @@ class Inpsyde_REST_API {
     }
 
     public static function callback() {
-        // retrieving data from the endpoint
-        $request = wp_remote_get( 'https://jsonplaceholder.typicode.com/users/' );
-            if( is_wp_error( $request ) ) {
-            return false;
-        }
+        $key = 'inpsyde-key';
+        
+        if( !wp_cache_get( $key ) ) {
+            // retrieving data from the endpoint
+            $request = wp_remote_get( 'https://jsonplaceholder.typicode.com/users/' );
+                //error handling
+                if( is_wp_error( $request ) ) {
+                return false;
+            }
 
-        $request_body = wp_remote_retrieve_body( $request );
+            $request_body = wp_remote_retrieve_body( $request );
         
-        // Translate into an array
-       self::$data = json_decode( $request_body, true );
-        
-        if( ! empty( self::$data ) ) {  
+            // Translate into an array
+            self::$data = json_decode( $request_body, true );
             
-            return (self::$data);
+            if( ! empty( self::$data ) ) {  
+                wp_cache_set( $key , self::$data ); // Adds data to the cache
+                return (self::$data);
+            }
+            
         }
     }
-
 }
