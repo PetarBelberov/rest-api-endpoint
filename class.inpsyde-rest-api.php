@@ -1,6 +1,6 @@
 <?php
 class Inpsyde_REST_API {
-    public static $data = array();
+    private static $data = array();
 
      /**
      * Register the routes for the objects of the controller.

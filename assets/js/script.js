@@ -2,8 +2,7 @@ jQuery(document).ready(function () {
     jQuery('.user').click(function(){
         event.preventDefault();
         var id = jQuery(this).attr('id');
-        jQuery('.display_details').empty();
-
+        
         jQuery.ajax({
             url: 'https://jsonplaceholder.typicode.com/users/', //This is the current doc
             type: "GET",
@@ -12,7 +11,8 @@ jQuery(document).ready(function () {
             success: function(data) {
                 // turn the JSON response into a string and append the result into the display_details container
                 var data_response_id = id - 1; 
-        
+                jQuery('.display_details').empty();
+
                 jQuery('#display_details_' + id).append('<b>Street:</b> ' + data[data_response_id]['address']['street'] + "<br />");
                 jQuery('#display_details_' + id).append('<b>Suite:</b> ' + data[data_response_id]['address']['suite'] + "<br />");
                 jQuery('#display_details_' + id).append('<b>City:</b> ' + data[data_response_id]['address']['city'] + "<br />");
@@ -28,7 +28,6 @@ jQuery(document).ready(function () {
              error: function() {
                  console.log('Error occured');
              }
-        })      
+        })    
     });
 });
-jQuery('.display_details').empty();
