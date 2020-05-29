@@ -1,0 +1,33 @@
+{
+  "license": "GPL-3.0-or-later",
+  "name": "inpsyde-plugin-task/inpsyde",
+  "type": "wordpress-plugin",
+  "description": "Inpsyde REST API Endpoint",
+  "authors": [
+    {
+      "name": "Petar Belberov",
+      "email": "petar_belberov@gmx.com",
+      "homepage": "https://github.com/PetarBelberov"
+    }
+  ],
+  "autoload": {
+    "classmap": [
+      "tests"
+    ]
+  },
+  "autoload-dev": {
+    "classmap": [
+      "tests"
+    ]
+  },
+  "require": {},
+  "require-dev": {
+    "phpunit/phpunit": "^9",
+    "mockery/mockery": "^1.3.1",
+    "brain/monkey": "^2.4.0",
+    "10up/wp_mock": "0.4.2"
+  },
+  "scripts": {
+    "test": "phpunit"
+  }
+}

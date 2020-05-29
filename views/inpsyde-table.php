@@ -1,7 +1,8 @@
 <?php
- $data = Inpsyde_REST_API::callback();
+ $class = new Inpsyde_REST_API();
+ $data = $class->callback();
  ?>
-<table>
+<table class='users-table'>
     <tbody class='users'>
         <tr class="titles">
             <th>Id</th>
