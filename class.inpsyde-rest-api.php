@@ -33,9 +33,9 @@ class Inpsyde_REST_API {
             self::$data = json_decode( $request_body, true );
             
             if( ! empty( self::$data ) ) {  
-                wp_cache_set( $key , self::$data ); // Adds data to the cache
-                return (self::$data);
+                wp_cache_set( $key , self::$data ); // Adds data to the cache 
             }
+            return self::$data;
         }
     }
 }

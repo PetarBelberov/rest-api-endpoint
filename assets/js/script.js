@@ -1,5 +1,5 @@
 jQuery(document).ready(function () {
-    jQuery('.user').click(function(){
+    jQuery('.additional-details a').click(function(){
         event.preventDefault();
         var id = jQuery(this).attr('id');
         
@@ -7,11 +7,13 @@ jQuery(document).ready(function () {
             url: 'https://jsonplaceholder.typicode.com/users/', //This is the current doc
             type: "GET",
             dataType:'json', // add json datatype to get json
-
+        
             success: function(data) {
                 // turn the JSON response into a string and append the result into the display_details container
                 var data_response_id = id - 1; 
                 jQuery('.display_details').empty();
+
+                jQuery('#myModal_'+ id).modal('toggle');
 
                 jQuery('#display_details_' + id).append('<b>Street:</b> ' + data[data_response_id]['address']['street'] + "<br />");
                 jQuery('#display_details_' + id).append('<b>Suite:</b> ' + data[data_response_id]['address']['suite'] + "<br />");
@@ -31,3 +33,4 @@ jQuery(document).ready(function () {
         })    
     });
 });
+

@@ -1,6 +1,6 @@
 <?php
- $class = new Inpsyde_REST_API();
- $data = $class->callback();
+ $data = Inpsyde_REST_API::callback();
+
  ?>
 <table class='users-table'>
     <tbody class='users'>
@@ -9,7 +9,10 @@
             <th>Name</th>
             <th>Username</th>
             <th>Email</th>
+            <th>Details</th>
         </tr>
+        <!-- <button type="button" data-toggle="modal" data-target="myModal"></button> -->
+
     <?php
         foreach( $data as $key=>$users ) {
             $id = $users["id"]; 
@@ -17,21 +20,34 @@
             $username = $users["username"]; 
             $email = $users["email"]; 
     ?>
-        
-        <tr class="user" id="<?php echo $id ?>">
-        <div class="display_details" id="<?php echo 'display_details_' . $id ?>"></div>        
+        <tr class="user" >
+
+            <div class="modal fade modal-lg" id="myModal_<?php echo $id ?>" role="dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h3><span class="glyphicon glyphicon-list-alt"></span> Aditional Details</h3>
+                    </div>
+                    <div class="modal-body">
+                        <div class="display_details" id="<?php echo 'display_details_' . $id ?>"></div>  
+                    </div> 
+                </div>
+            </div>
             <td>
-                <a href="#"><?php echo $id ?></a>
+                <p><?php echo $id ?></p>
             </td>
             <td>
-                <a href="#"><?php echo $name ?></a>
+                <p><?php echo $name ?></p>
             </td>
             <td>
-                <a href="#"><?php echo $username ?></a>
+                <p><?php echo $username ?></p>
             </td>
             <td>
-                <a href="#"><?php echo $email ?></a>
-            </td>  
+                <p><?php echo $email ?></p>
+            </td>
+            <td class="additional-details">
+                <a href="#" id="<?php echo $id ?>"><span class="glyphicon glyphicon-list-alt"></span></a>
+            </td> 
         </tr>
     <?php } ?>
     </tbody>
