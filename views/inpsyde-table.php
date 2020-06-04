@@ -1,27 +1,33 @@
 <?php
  $data = Inpsyde_REST_API::callback();
-
  ?>
 <table class='users-table'>
-    <tbody class='users'>
-        <tr class="titles">
+    <thead>
+        <tr class="titles desktop">
             <th>Id</th>
             <th>Name</th>
             <th>Username</th>
             <th>Email</th>
             <th>Details</th>
         </tr>
-        <!-- <button type="button" data-toggle="modal" data-target="myModal"></button> -->
-
-    <?php
+    </thead>
+    <tbody class='users'>
+        <?php
         foreach( $data as $key=>$users ) {
             $id = $users["id"]; 
             $name = $users["name"]; 
             $username = $users["username"]; 
             $email = $users["email"]; 
-    ?>
+        ?>
+        <tr class="titles mobile">
+            <th>Id</th>
+            <th>Name</th>
+            <th>Username</th>
+            <th>Email</th>
+            <th>Details</th>
+        </tr>
+        
         <tr class="user" >
-
             <div class="modal fade modal-lg" id="myModal_<?php echo $id ?>" role="dialog">
                 <div class="modal-content">
                     <div class="modal-header">

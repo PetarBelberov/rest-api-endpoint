@@ -1,0 +1,120 @@
+// Modules
+$primary-color: #fff;
+$secondary-color: #3498db;
+
+// Extend
+%cell-styling {
+    padding: 5px; 
+    border: 1px solid #ccc; 
+    text-align: left; 
+    font-size: 18px;
+}
+
+table.users-table {
+    .display_details { 
+        width: 750px; 
+        border-collapse: collapse; 
+        font-size: 17px;
+        margin: 0 auto;
+    }
+
+    tr.titles {
+       
+        th {
+            background: $secondary-color; 
+            color: $primary-color; 
+            font-weight: bold; 
+            @extend %cell-styling;
+        }
+    }
+    
+    tr.user {
+        td {
+            @extend %cell-styling;
+        }
+
+        .additional-details {
+            text-align: center; 
+        }
+    }
+}
+
+/* Modal */
+.modal.fade.in {
+    margin: 0 auto;
+    .modal-content {
+        margin-top: 60px;
+        h3 {
+            text-align: center;
+            color: $primary-color;
+            span {
+                color: $primary-color;
+            }
+        }
+        .close {
+            font-size: 30px;
+            color: $primary-color;
+            opacity: 0.9;
+        }
+    }
+
+    .modal-header {
+        background-color: $secondary-color;
+    }
+}
+
+.titles.mobile{
+    display: none;
+}
+
+@media only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+    /* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+    
+    table.users-table { 
+        width: 100%; 
+
+        .titles.desktop {
+            display: none;
+        }
+        /* Hide table headers (but not display: none;, for accessibility) */
+        .titles.mobile {
+            display: block; 
+            position: absolute;
+            th {
+                background: $primary-color; 
+                color: $secondary-color; 
+            }
+        }
+
+        tr.user { 
+            border: 1px solid #ccc;
+            td { 
+                /* Behave  like a "row" */
+                border: none;
+                border-bottom: 1px solid #eee; 
+                position: relative;
+                margin-left: 11rem;
+                word-break: break-word;
+
+                &:before {
+                    /* Now like a table header */
+                    position: absolute;
+                    /* Top/left values mimic padding */
+                    top: 6px;
+                    left: 6px;
+                    width: 45%; 
+                    padding-right: 10px; 
+                    white-space: nowrap;
+                    /* Label the data */
+                    content: attr(data-column);
+                    color: #000;
+                    font-weight: bold;
+                }
+            }
+         }
+    }  
+}
