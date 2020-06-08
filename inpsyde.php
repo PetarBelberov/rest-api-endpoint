@@ -1,12 +1,12 @@
 <?php
 /*
   Plugin Name: Inpsyde REST API Endpoint
-  Plugin URI: #
+  Plugin URI: https://github.com/PetarBelberov/inpsyde-plugin-task
   Description: Shortcode: [inpsyde_shortcode]
-  Author: #
-  Author URI: #
-  Text Domain: #
+  Author: Petar Belberov
+  Author URI: https://github.com/PetarBelberov
   Version:  1.0
+  License: GPL3
  */
 
 // Don't expose any info if called directly

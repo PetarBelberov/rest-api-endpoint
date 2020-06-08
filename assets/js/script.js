@@ -12,7 +12,6 @@ jQuery(document).ready(function () {
                 // turn the JSON response into a string and append the result into the display_details container
                 var data_response_id = id - 1; 
                 jQuery('.display_details').empty();
-
                 jQuery('#myModal_'+ id).modal('toggle');
 
                 jQuery('#display_details_' + id).append('<b>Street:</b> ' + data[data_response_id]['address']['street'] + "<br />");
