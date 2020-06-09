@@ -1,8 +1,8 @@
 <?php
 /*
-  Plugin Name: Inpsyde REST API Endpoint
-  Plugin URI: https://github.com/PetarBelberov/rest-api-endpoint-plugin
-  Description: Shortcode: [inpsyde_shortcode]
+  Plugin Name: REST API Endpoint
+  Plugin URI: https://github.com/PetarBelberov/rest-api-endpoint
+  Description: The plugin sends an HTTP request to a REST API endpoint and parses the JSON response using it to build and display an HTML table. Shortcode: <strong>[inpsyde_shortcode]</strong>
   Author: Petar Belberov
   Author URI: https://github.com/PetarBelberov
   Version:  1.0
@@ -24,8 +24,3 @@ require_once( INPSYDE__PLUGIN_DIR . 'class.inpsyde-shortcode.php' );
 add_action( 'init', array( 'Inpsyde_Plugin', 'init' ) );
 add_action('rest_api_init', array('Inpsyde_REST_API', 'init' ));
 add_action( 'init', array( 'Inpsyde_Shortcode', 'init' ) );
-
-if ( is_admin() || ( defined( 'WP_CLI' ) && WP_CLI ) ) {
-	require_once( INPSYDE__PLUGIN_DIR . 'class.inpsyde-admin.php' );
-	add_action( 'init', array( 'Inpsyde_Admin', 'init' ) );
-}
