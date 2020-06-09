@@ -13,7 +13,10 @@ table.users-table tr.titles th {
   background: #3498db;
   color: #fff;
   font-weight: bold; }
-table.users-table tr.user .additional-details {
+table.users-table tr.user .additional-details:nth-of-type(-n+4) a {
+  color: #000000c4;
+  text-decoration: none; }
+table.users-table tr.user .additional-details:nth-of-type(5) {
   text-align: center; }
 
 /* Modal */

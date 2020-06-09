@@ -33,7 +33,12 @@ table.users-table {
             @extend %cell-styling;
         }
 
-        .additional-details {
+        .additional-details:nth-of-type(-n+4) a{
+            color: #000000c4;
+            text-decoration: none;
+        }
+
+        .additional-details:nth-of-type(5) {
             text-align: center; 
         }
     }

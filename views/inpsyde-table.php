@@ -28,7 +28,7 @@
         </tr>
         
         <tr class="user" >
-            <div class="modal fade modal-lg" id="myModal_<?php echo $id ?>" role="dialog">
+            <div class="modal fade modal-lg" id="details_modal_<?php echo $id ?>" role="dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -39,17 +39,17 @@
                     </div> 
                 </div>
             </div>
-            <td>
-                <p><?php echo $id ?></p>
+            <td class="additional-details">
+                <a href="#" id="<?php echo $id ?>"><?php echo $id ?></ap>
             </td>
-            <td>
-                <p><?php echo $name ?></p>
+            <td class="additional-details">
+                <a href="#" id="<?php echo $id ?>"><?php echo $name ?></a>
             </td>
-            <td>
-                <p><?php echo $username ?></p>
+            <td class="additional-details">
+                <a href="#" id="<?php echo $id ?>"><?php echo $username ?></a>
             </td>
-            <td>
-                <p><?php echo $email ?></p>
+            <td class="additional-details">
+                <a href="#" id="<?php echo $id ?>"><?php echo $email ?></a>
             </td>
             <td class="additional-details">
                 <a href="#" id="<?php echo $id ?>"><span class="glyphicon glyphicon-list-alt"></span></a>

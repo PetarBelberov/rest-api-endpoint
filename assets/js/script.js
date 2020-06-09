@@ -2,6 +2,14 @@ jQuery(document).ready(function () {
     jQuery('.additional-details a').click(function(){
         event.preventDefault();
         var id = jQuery(this).attr('id');
+
+        // Adds CORS headers to the proxied request
+        jQuery.ajaxPrefilter( function (options) {
+            if (options.crossDomain && jQuery.support.cors) {
+              var http = (window.location.protocol === 'http:' ? 'http:' : 'https:');
+              options.url = http + '//cors-anywhere.herokuapp.com/' + options.url;
+            }
+          });
         
         jQuery.ajax({
             url: 'https://jsonplaceholder.typicode.com/users/', //This is the current doc
@@ -12,7 +20,7 @@ jQuery(document).ready(function () {
                 // turn the JSON response into a string and append the result into the display_details container
                 var data_response_id = id - 1; 
                 jQuery('.display_details').empty();
-                jQuery('#myModal_'+ id).modal('toggle');
+                jQuery('#details_modal_'+ id).modal('toggle');
 
                 jQuery('#display_details_' + id).append('<b>Street:</b> ' + data[data_response_id]['address']['street'] + "<br />");
                 jQuery('#display_details_' + id).append('<b>Suite:</b> ' + data[data_response_id]['address']['suite'] + "<br />");

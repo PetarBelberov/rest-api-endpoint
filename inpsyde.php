@@ -1,7 +1,7 @@
 <?php
 /*
   Plugin Name: Inpsyde REST API Endpoint
-  Plugin URI: https://github.com/PetarBelberov/inpsyde-plugin-task
+  Plugin URI: https://github.com/PetarBelberov/rest-api-endpoint-plugin
   Description: Shortcode: [inpsyde_shortcode]
   Author: Petar Belberov
   Author URI: https://github.com/PetarBelberov
