@@ -14,8 +14,8 @@ jQuery(document).ready(function () {
         jQuery.ajax({
             url: 'https://jsonplaceholder.typicode.com/users/', //This is the current doc
             type: "GET",
+            // beforeSend: function(xhr){xhr.setRequestHeader('X-Test-Header', 'test-value');},
             dataType:'json', // add json datatype to get json
-        
             success: function(data) {
                 // turn the JSON response into a string and append the result into the display_details container
                 var data_response_id = id - 1; 

@@ -30,7 +30,7 @@
         <tr class="user" >
             <div class="modal fade modal-lg" id="details_modal_<?php echo $id ?>" role="dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
+                    <div class="modal-header d-block">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h3><span class="glyphicon glyphicon-list-alt"></span> Aditional Details</h3>
                     </div>

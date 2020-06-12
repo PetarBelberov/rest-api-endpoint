@@ -1,6 +1,7 @@
 // Modules
 $primary-color: #fff;
 $secondary-color: #3498db;
+$font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 // Extend
 %cell-styling {
@@ -16,6 +17,7 @@ table.users-table {
         border-collapse: collapse; 
         font-size: 17px;
         margin: 0 auto;
+        color: black;
     }
 
     tr.titles {
@@ -36,10 +38,17 @@ table.users-table {
         .additional-details:nth-of-type(-n+4) a{
             color: #000000c4;
             text-decoration: none;
+            box-shadow: none;
         }
 
         .additional-details:nth-of-type(5) {
             text-align: center; 
+        }
+
+        .additional-details:nth-of-type(5) a {
+            color: #3498db;
+            text-decoration: none;
+            box-shadow: none;
         }
     }
 }
@@ -47,11 +56,14 @@ table.users-table {
 /* Modal */
 .modal.fade.in {
     margin: 0 auto;
+    font-family: $font-family;
     .modal-content {
         margin-top: 60px;
+        border: none;
         h3 {
             text-align: center;
             color: $primary-color;
+            padding: 0;
             span {
                 color: $primary-color;
             }
@@ -65,6 +77,12 @@ table.users-table {
 
     .modal-header {
         background-color: $secondary-color;
+    }
+
+    .modal-body {
+        background-color: #fff;
+        border: none;
+        font-family: $font-family;
     }
 }
 

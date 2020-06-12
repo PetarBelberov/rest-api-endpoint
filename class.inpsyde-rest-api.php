@@ -18,19 +18,27 @@ class Inpsyde_REST_API {
         
         if( !wp_cache_get( $key ) ) {
             // retrieving data from the endpoint
-            $request = wp_remote_get( 'https://jsonplaceholder.typicode.com/users/' );
+            // the argument extends the HTTP Request timeout length
+            $request = wp_remote_get( 'https://jsonplaceholder.typicode.com/users/', array( 'timeout' => 10 ) );
 
             //error handling
-            if( is_wp_error( $request ) ) {
+            if ( is_array( $request ) && !is_wp_error( $request ) ) {
+                $headers = $request['headers']; // array of http header lines
+                $body    = $request['body']; // use the content
+            }
+            else {
                 $error_string = $request->get_error_message();
                 echo '<div id="message" class="error"><p>' . 'An error occured: ' . $error_string . '</p></div>';
                 return false;
             }
-            
-            $request_body = wp_remote_retrieve_body( $request );
         
-            // Translate into an array
-            self::$data = json_decode( $request_body, true );
+            // Keep managed the JSON response execution
+            try {
+                // Translate into an array
+                self::$data = json_decode( $body, true );
+              } catch ( Exception $ex ) {
+                self::$data = null;
+              }
             
             if( ! empty( self::$data ) ) {  
                 wp_cache_set( $key , self::$data ); // Adds data to the cache 

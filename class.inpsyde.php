@@ -1,5 +1,4 @@
 <?php
-
   class Inpsyde_Plugin {
     
     public static function init() {
@@ -21,5 +20,5 @@
       wp_enqueue_script( 'inpsyde-script' );
       wp_register_script( 'bootstrap-script', 'https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js', array('jquery'), true );
       wp_enqueue_script( 'bootstrap-script' );
-	  }
+    }
   }
