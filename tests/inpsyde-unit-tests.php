@@ -60,12 +60,8 @@ class Inpsyde_Unit_Tests extends \Inpsyde_TestCase  {
        
        Brain\Monkey\Functions\expect('wp_remote_get')
         ->once()
-        ->with('https://jsonplaceholder.typicode.com/users/');
-        
-       Brain\Monkey\Functions\expect('wp_remote_retrieve_body')
-        ->once()
-        ->withAnyArgs();
-
+        ->with('https://jsonplaceholder.typicode.com/users/', array( 'timeout' => 10 ) );
+   
         ( new Inpsyde_REST_API() )::callback();
     } 
 }
