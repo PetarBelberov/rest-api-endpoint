@@ -28,31 +28,31 @@
         </tr>
         
         <tr class="user" >
-            <div class="modal fade modal-lg" id="details_modal_<?php echo $id ?>" role="dialog">
+            <div class="modal fade modal-lg" id="details_modal_<?php echo esc_attr($id) ?>" role="dialog">
                 <div class="modal-content">
                     <div class="modal-header d-block">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                         <h3><span class="glyphicon glyphicon-list-alt"></span> Aditional Details</h3>
                     </div>
                     <div class="modal-body">
-                        <div class="display_details" id="<?php echo 'display_details_' . $id ?>"></div>  
+                        <div class="display_details" id="<?php echo 'display_details_' . esc_attr($id) ?>"></div>  
                     </div> 
                 </div>
             </div>
             <td class="additional-details">
-                <a href="#" id="<?php echo $id ?>"><?php echo $id ?></ap>
+                <a href="#" id="<?php echo $id ?>"><?php echo esc_html($id) ?></ap>
             </td>
             <td class="additional-details">
-                <a href="#" id="<?php echo $id ?>"><?php echo $name ?></a>
+                <a href="#" id="<?php echo $id ?>"><?php echo esc_html($name) ?></a>
             </td>
             <td class="additional-details">
-                <a href="#" id="<?php echo $id ?>"><?php echo $username ?></a>
+                <a href="#" id="<?php echo $id ?>"><?php echo esc_html($username) ?></a>
             </td>
             <td class="additional-details">
-                <a href="#" id="<?php echo $id ?>"><?php echo $email ?></a>
+                <a href="#" id="<?php echo $id ?>"><?php echo esc_html($email) ?></a>
             </td>
             <td class="additional-details">
-                <a href="#" id="<?php echo $id ?>"><span class="glyphicon glyphicon-list-alt"></span></a>
+                <a href="#" id="<?php echo esc_html($id) ?>"><span class="glyphicon glyphicon-list-alt"></span></a>
             </td> 
         </tr>
     <?php } ?>
